@@ -1,0 +1,13 @@
+unstructured
+tiktoken
+pinecone-client
+pydf
+openai
+langchain
+torch
+pandas 
+numpy
+transformers
+langchain_community
+langchain_openai
+chromadb
