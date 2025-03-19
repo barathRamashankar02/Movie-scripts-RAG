@@ -7,14 +7,21 @@
    - **Conversational Chat System:**  
      Implements a message state graph using [Langraph](https://github.com/blackhc/langraph), making interactions more dynamic and allowing responses beyond database-dependent queries.
    - **Two Chat Modes:**
-     1. **Simple Chat System:** Answers one question at a time without remembering chat history. (available in the ipynb file)
-     2. **Interactive Chat System:** Maintains chat history and handles general conversations using **MemorySaver Checkpointer** in Langraph. (available in the gradio_app.py file)
+     1. **Simple Chat System:** Answers one question at a time without remembering chat history. (available in the simple_gradio_app.py file)
+     2. **Interactive Chat System:** Maintains chat history and handles general conversations using **MemorySaver Checkpointer** in Langraph. (available in the interactive_gradio_app.py file)
    - **Efficient PDF Processing:**  
      Uses [PyPDF2](https://pypi.org/project/PyPDF2/) to extract text from movie script PDFs.
    - **Optimized Text Chunking:**  
      Leverages [LangChain’s Recursive Text Splitter](https://python.langchain.com/docs/modules/data_connection/document_loaders/document_transformation) to manage and structure script content efficiently.
    - **Web Interface:**  
      Built with [Gradio](https://gradio.app/) for a user-friendly, web-based experience.
+   ## Demonstration
+
+   Below is a screenshot of the **Simple Chat** mode:
+   ![Simple Chat Demo](./images/rag_nomem.png)
+   
+   And here is the **Interactive Chat** mode with memory and dynamic conversation:
+   ![Interactive Chat Demo](./images/rag_mem.png)
 
    ## Installation
 
@@ -37,9 +44,12 @@
         ```
 
    ## Usage
-
+   The vector base is already available in this repo, If needed to add more data or create a different vector database look into the ipynb file for the steps.
    1. **Run the application:**
       ```bash
-      python gradio_app.py
+      python simple_gradio_app.py
       ```
-   2. Once the application is running, the application should in your browser if not opened then provided local URL (e.g., http://127.0.0.1:7860) in your web browser.
+      ```bash
+      python interactive_gradio_app.py
+      ```
+   3. Once the application is running, the application should open in your browser if not opened then provide the local URL (http://127.0.0.1:7860) in your web browser.
