@@ -5,7 +5,7 @@
    - **Movie Script-Based Question Answering:**  
      Stores and retrieves movie scripts from a vector database to provide relevant responses based on users’ questions.
    - **Conversational Chat System:**  
-     Implemented a message state graph using [Langraph]([https://github.com/blackhc/langraph](https://www.langchain.com/langgraph)), making interactions more dynamic and allowing responses beyond database-dependent queries.
+     Implemented a message state graph using [Langraph](https://www.langchain.com/langgraph), making interactions more dynamic and allowing responses beyond database-dependent queries.
    - **Two Chat Modes:**
      1. **Simple Chat System:** Answers one question at a time without remembering chat history and not able to have normal conversations outside of the database. (available in the simple_gradio_app.py file)
      2. **Interactive Chat System:** Maintains chat history and handles general conversations using **MemorySaver Checkpointer** in Langraph. (available in the interactive_gradio_app.py file)
