@@ -57,5 +57,5 @@
       ```
    3. Once the application is running, the application should open in your browser if not opened then provide the local URL (http://127.0.0.1:7860) in your web browser.
 
-   ## Note:
+   ## Note
    This is a project i did for my own learning process. If you find any mistakes or upgrades that are necessary kindly ping me, Thank You.
