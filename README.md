@@ -1,49 +1,48 @@
-# Movie-scripts-RAG
-Conversational Chat Application with Movie Script Retrieval
-Overview
-This project is a conversational chat application that leverages vector databases to store and retrieve movie scripts, enabling it to answer questions contextually based on the stored content. Additionally, it features general conversational capabilities, allowing users to interact beyond script-based queries.
+   ## Overview
+   **Movie-scripts-RAG** is a conversational chat application that leverages vector databases to store and retrieve movie scripts. It enables contextual question-answering based on stored content while also providing general conversational capabilities, allowing users to interact beyond script-based queries.
 
-Features
-Movie Script-Based Question Answering: Stores and retrieves movie scripts from a vector database to provide relevant responses.
-Conversational Chat System: Implements a message state graph using Langraph, making interactions more dynamic and allowing responses beyond database-dependent queries.
-Two Chat Modes:
-Simple Chat System: Answers one question at a time without remembering chat history.
-Interactive Chat System: Maintains chat history and handles general conversations using MemorySaver Checkpointer in Langraph.
-Efficient PDF Processing: Uses PyPDF2 to extract text from movie script PDFs.
-Optimized Text Chunking: Leverages LangChain’s Recursive Text Splitter to manage and structure script content.
-Web Interface: Built with Gradio for a user-friendly experience.
-Installation
-Clone the repository:
-bash
-Copy
-Edit
-git clone <repository-url>
-cd <repository-folder>
-Install dependencies:
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Set up API keys:
-Create a .env file in the root directory.
-Add necessary API keys (default: OpenAI API Key). Adjust the code if using a different LLM provider.
-ini
-Copy
-Edit
-OPENAI_API_KEY=your-api-key-here
-Usage
-Run the application:
-bash
-Copy
-Edit
-python gradio_app.py
-The chat application will be accessible via localhost in your web browser.
-Technologies Used
-Python
-LangChain (for text processing & vector database management)
-Langraph (for conversational message state graph)
-PyPDF2 (for extracting text from PDFs)
-Gradio (for web-based UI)
-Vector Database (for storing & retrieving movie scripts)
-Contributing
-Feel free to submit issues, pull requests, or feature suggestions to improve the chatbot!
+   ## Features
+   - **Movie Script-Based Question Answering:**  
+     Stores and retrieves movie scripts from a vector database to provide relevant responses based on users’ questions.
+   - **Conversational Chat System:**  
+     Implements a message state graph using [Langraph](https://github.com/blackhc/langraph), making interactions more dynamic and allowing responses beyond database-dependent queries.
+   - **Two Chat Modes:**
+     1. **Simple Chat System:** Answers one question at a time without remembering chat history.  
+     2. **Interactive Chat System:** Maintains chat history and handles general conversations using **MemorySaver Checkpointer** in Langraph.
+   - **Efficient PDF Processing:**  
+     Uses [PyPDF2](https://pypi.org/project/PyPDF2/) to extract text from movie script PDFs.
+   - **Optimized Text Chunking:**  
+     Leverages [LangChain’s Recursive Text Splitter](https://python.langchain.com/docs/modules/data_connection/document_loaders/document_transformation) to manage and structure script content efficiently.
+   - **Web Interface:**  
+     Built with [Gradio](https://gradio.app/) for a user-friendly, web-based experience.
+
+   ## Installation
+
+   1. **Clone the repository:**
+      ```bash
+      git clone <repository_url>
+      cd movie-scripts-RAG
+      ```
+
+   2. **Install dependencies:**
+      ```bash
+      pip install -r requirements.txt
+      ```
+
+   3. **Set up API keys:**
+      - Create a `.env` file in the root directory.
+      - Add the necessary API keys (default is OpenAI API Key).  
+        If using a different LLM provider, adjust the code accordingly.  
+        
+        **Example**:
+        ```
+        OPENAI_API_KEY=your-api-key-here
+        ```
+
+   ## Usage
+
+   1. **Run the application:**
+      ```bash
+      python gradio_app.py
+      ```
+   2. Once the application is running, open the provided local URL (e.g., http://127.0.0.1:7860) in your web browser.
