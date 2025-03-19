@@ -4,7 +4,7 @@ from PyPDF2 import PdfReader
 import os
 from langchain_openai import OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from uuid import uuid4
 from langchain.chat_models import init_chat_model
 from langchain import hub
@@ -35,6 +35,8 @@ vector_store = Chroma(
 # llm = init_chat_model(
 #     "llama3-8b-8192", 
 #     model_provider="groq")
+
+# Loading Chat Model (Change provider if needed)
 llm = init_chat_model(
     "gpt-3.5-turbo", 
     model_provider="openai")
@@ -52,20 +54,18 @@ def retrieve(question: str):
         for doc in retrieved_docs
     )
     return serialized, retrieved_docs
-k
+
 # nodes
 def query_or_respond(state: MessagesState):
     """Generate tool call for retrieval or respond."""
     llm_with_tools = llm.bind_tools([retrieve])
     response = llm_with_tools.invoke(state["messages"])
-    # MessagesState appends messages to state instead of overwriting
     return {"messages": [response]}
 
 tools = ToolNode([retrieve])
 
 def generate(state: MessagesState):
     """Generate answer."""
-    # Get generated ToolMessages
     recent_tool_messages = []
     for message in reversed(state["messages"]):
         if message.type == "tool":
@@ -74,7 +74,7 @@ def generate(state: MessagesState):
             break
     tool_messages = recent_tool_messages[::-1]
 
-    # Format into prompt
+    # Prompt
     docs_content = "\n\n".join(doc.content for doc in tool_messages)
     system_message_content = (
         "You are an assistant for question-answering tasks. "
@@ -93,8 +93,7 @@ def generate(state: MessagesState):
     ]
     prompt = [SystemMessage(system_message_content)] + conversation_messages
 
-    # Run
-    response = llm.invoke(prompt)
+    response = llm.invoke(prompt) # generating response
     return {"messages": [response]}
 
 #edges and combining nodes
@@ -135,11 +134,12 @@ def predict(message, history):
     return response
 
 demo = gr.ChatInterface(
-    predict,
+    fn=predict,
+    title="Movie Scripts RAG with Memory and interactive chat",
     type="messages"
 )
 
-demo.launch()
+demo.launch(inbrowser=True)
 
 
 ############################ terminal check ########################################
