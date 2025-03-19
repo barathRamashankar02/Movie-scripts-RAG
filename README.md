@@ -19,11 +19,11 @@
 
    Below is a screenshot of the **Simple Chat** mode:
    
-   <img src="./images/rag_nomem.png" alt="Simple Chat Demo" width="400" />
+   <img src="./images/rag_nomem.png" alt="Simple Chat Demo" width="600" />
    
    And here is the **Interactive Chat** mode with memory and dynamic conversation:
    
-   <img src="./images/rag_mem.png" alt="Interactive Chat Demo" width="400" />
+   <img src="./images/rag_mem.png" alt="Interactive Chat Demo" width="600" />
 
 
    ## Installation
